@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://d04hh3or75rm0"]
+
+[ext_resource type="PackedScene" uid="uid://mdbrtxsr47ht" path="res://player.tscn" id="1_a202f"]
+[ext_resource type="PackedScene" uid="uid://c0r4y0fv1ro2q" path="res://rigidBodyPlayer.tscn" id="2_noarx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a202f"]
+sky_material = SubResource("ProceduralSkyMaterial_4xowi")
+
+[sub_resource type="Environment" id="Environment_noarx"]
+background_mode = 2
+sky = SubResource("Sky_a202f")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+adjustment_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a202f"]
+albedo_color = Color(0, 0.3137255, 0.5647059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+size = Vector3(6.74, 1, 5.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+size = Vector3(6.95, 1.18, 5.315)
+
+[node name="Node3D" type="Node3D" unique_id=890306487]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1284761171]
+environment = SubResource("Environment_noarx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1454935054]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." unique_id=1468891287 instance=ExtResource("1_a202f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63505256, 0)
+visible = false
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=518475772]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=992368511]
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_a202f")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1262611235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.416, 1.037, 0)
+size = Vector3(1, 1, 20)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1404419720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.584, 1.037, 0)
+size = Vector3(1, 1, 20)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=396612755]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.037, 9.517)
+size = Vector3(1, 1, 20)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1789507830]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.037, -9.483)
+size = Vector3(1, 1, 20)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=758686280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0403454, -6.147969)
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="." unique_id=772747026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0255585, 1.5269287, -3.087051)
+visible = false
+
+[node name="Head" type="CSGCombiner3D" parent="CSGCombiner3D3" unique_id=1456712285]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D3/Head" unique_id=711839776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5858297, 0)
+radius = 0.3
+rings = 5
+
+[node name="RightArm" type="CSGCombiner3D" parent="CSGCombiner3D3" unique_id=1136793517]
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D3/RightArm" unique_id=636550249]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.54087925, 1.1541765, 0)
+radius = 0.137
+height = 0.485
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCombiner3D3/RightArm" unique_id=1610524252]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.180624, 1.1541765, 0)
+radius = 0.105
+height = 0.813
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D3/RightArm" unique_id=1152776315]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.6631622, 1.1600804, 0)
+radius = 0.156
+radial_segments = 6
+rings = 3
+
+[node name="RightLeg" type="CSGCombiner3D" parent="CSGCombiner3D3" unique_id=1189924783]
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D3/RightLeg" unique_id=1438954997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17988968, -0.29477596, 0)
+radius = 0.105
+height = 0.586
+sides = 5
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D3/RightLeg" unique_id=1467601255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17988968, 0.24257922, 0)
+radius = 0.137
+height = 0.515
+sides = 5
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D3/RightLeg" unique_id=1323297518]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.17155886, -0.6086861, 0.09839034)
+radius = 0.137
+height = 0.394
+sides = 5
+
+[node name="Body" type="CSGCombiner3D" parent="CSGCombiner3D3" unique_id=346183605]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D3/Body" unique_id=1424813305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.120801, 0)
+radius = 0.339
+height = 0.4219297
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D3/Body" unique_id=737446477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6947608, 0)
+radius = 0.301
+height = 0.43538672
+
+[node name="LeftLeg" type="CSGCombiner3D" parent="CSGCombiner3D3" unique_id=988156188]
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D3/LeftLeg" unique_id=802186347]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.18078995, -0.29477596, 0)
+radius = 0.105
+height = 0.586
+sides = 5
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D3/LeftLeg" unique_id=821560780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18078995, 0.24257922, 0)
+radius = 0.137
+height = 0.515
+sides = 5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D3/LeftLeg" unique_id=552278812]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.19355202, -0.6086861, 0.09839034)
+radius = 0.137
+height = 0.394
+sides = 5
+
+[node name="LeftArm" type="CSGCombiner3D" parent="CSGCombiner3D3" unique_id=38171514]
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCombiner3D3/LeftArm" unique_id=1830591665]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.52979517, 1.1541765, 0)
+radius = 0.137
+height = 0.485
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCombiner3D3/LeftArm" unique_id=1029399553]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.1738844, 1.1541765, 0)
+radius = 0.105
+height = 0.813
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGCombiner3D3/LeftArm" unique_id=1305164235]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.6604397, 1.1600804, 0)
+radius = 0.156
+radial_segments = 6
+rings = 3
+
+[node name="Node3D2" parent="." unique_id=1319504325 instance=ExtResource("2_noarx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34329557, -0.0008677244, 0)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=1353084201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2482595, 1.5269287, -3.087051)
+visible = false
+
+[node name="RightArm" type="CSGCombiner3D" parent="CSGCombiner3D2" unique_id=1862357811]
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D2/RightArm" unique_id=289645421]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.54087925, 1.1541765, 0)
+radius = 0.137
+height = 0.485
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCombiner3D2/RightArm" unique_id=324873559]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.180624, 1.1541765, 0)
+radius = 0.105
+height = 0.813
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D2/RightArm" unique_id=2078630856]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.6631622, 1.1600804, 0)
+radius = 0.156
+radial_segments = 6
+rings = 3
+
+[node name="RightLeg" type="CSGCombiner3D" parent="CSGCombiner3D2" unique_id=1274141392]
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D2/RightLeg" unique_id=104943092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17988968, -0.29477596, 0)
+radius = 0.105
+height = 0.586
+sides = 5
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D2/RightLeg" unique_id=1331615758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17988968, 0.24257922, 0)
+radius = 0.137
+height = 0.515
+sides = 5
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D2/RightLeg" unique_id=231806342]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.17155886, -0.6086861, 0.09839034)
+radius = 0.137
+height = 0.394
+sides = 5
+
+[node name="Body" type="CSGCombiner3D" parent="CSGCombiner3D2" unique_id=131451480]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2/Body" unique_id=1878942339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.120801, 0)
+radius = 0.339
+height = 0.4219297
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D2/Body" unique_id=391247759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6947608, 0)
+radius = 0.301
+height = 0.43538672
+
+[node name="LeftLeg" type="CSGCombiner3D" parent="CSGCombiner3D2" unique_id=2097308212]
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D2/LeftLeg" unique_id=794396536]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.18078995, -0.29477596, 0)
+radius = 0.105
+height = 0.586
+sides = 5
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D2/LeftLeg" unique_id=667508792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18078995, 0.24257922, 0)
+radius = 0.137
+height = 0.515
+sides = 5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D2/LeftLeg" unique_id=1802735430]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.19355202, -0.6086861, 0.09839034)
+radius = 0.137
+height = 0.394
+sides = 5
+
+[node name="LeftArm" type="CSGCombiner3D" parent="CSGCombiner3D2" unique_id=1546726609]
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCombiner3D2/LeftArm" unique_id=568800356]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.52979517, 1.1541765, 0)
+radius = 0.137
+height = 0.485
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="CSGCombiner3D2/LeftArm" unique_id=1341008375]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.1738844, 1.1541765, 0)
+radius = 0.105
+height = 0.813
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGCombiner3D2/LeftArm" unique_id=1114241165]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.6604397, 1.1600804, 0)
+radius = 0.156
+radial_segments = 6
+rings = 3
+
+[node name="Head" type="CSGCombiner3D" parent="CSGCombiner3D2" unique_id=1366149871]
+use_collision = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D2/Head" unique_id=138690777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5858297, 0)
+radius = 0.3
+rings = 5
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=647622079]
+transform = Transform3D(-0.9998477, 0, -0.017452395, 0, 1, 0, 0.017452395, 0, -0.9998477, 0.144, 3.043, -5.797)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=344272835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53251505, 6.778448, 0.21852493)
+visible = false
+mass = 100000.0
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=151661258]
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1928645835]
+shape = SubResource("BoxShape3D_a0tk4")
