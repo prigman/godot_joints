@@ -73,11 +73,13 @@ height = 0.6
 [sub_resource type="SphereShape3D" id="SphereShape3D_uhwhw"]
 radius = 0.33
 
-[node name="Node3D2" type="Node3D" unique_id=1319504325 node_paths=PackedStringArray("bodyRoot", "cameraRoot", "head")]
+[node name="Node3D2" type="Node3D" unique_id=1319504325 node_paths=PackedStringArray("bodyRoot", "cameraRoot", "head", "rightArm1", "rightArm2")]
 script = ExtResource("1_ym3n5")
 bodyRoot = NodePath("Root")
 cameraRoot = NodePath("CameraRoot")
 head = NodePath("Head")
+rightArm1 = NodePath("RArm1")
+rightArm2 = NodePath("RArm2")
 
 [node name="CameraRoot" type="Node3D" parent="." unique_id=1120139999]
 
@@ -87,6 +89,7 @@ current = true
 
 [node name="RArm2" type="RigidBody3D" parent="." unique_id=1200460771]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.3617301, 2.714764, 0)
+mass = 5.0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RArm2" unique_id=463696074]
 mesh = SubResource("CapsuleMesh_yooqw")
@@ -96,6 +99,7 @@ shape = SubResource("CapsuleShape3D_t6cdf")
 
 [node name="RArm1" type="RigidBody3D" parent="." unique_id=969629965]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.56980765, 2.714764, 0)
+mass = 5.0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RArm1" unique_id=1967086458]
 mesh = SubResource("CapsuleMesh_2r1pm")
@@ -213,7 +217,6 @@ shape = SubResource("SphereShape3D_uhwhw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9407723, 2.6984587, 0)
 node_a = NodePath("../RArm2")
 node_b = NodePath("../RArm1")
-angular_limit_y/upper_angle = 1.5707964
 angular_limit_y/lower_angle = -1.5707964
 
 [node name="Generic6DOFJoint3D2" type="Generic6DOFJoint3D" parent="." unique_id=87959166]
@@ -238,7 +241,6 @@ angular_spring_z/damping = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95030606, 2.6984587, 0)
 node_a = NodePath("../LArm1")
 node_b = NodePath("../LArm2")
-angular_limit_y/upper_angle = 1.5707964
 angular_limit_y/lower_angle = -1.5707964
 
 [node name="Generic6DOFJoint3D4" type="Generic6DOFJoint3D" parent="." unique_id=79359013]
