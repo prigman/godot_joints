@@ -8,10 +8,6 @@ const JUMP_VELOCITY := 4.5
 var lookDirection: Vector2
 var cameraSensitivity := 1.0
 
-
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"): get_tree().quit()
 	if event is InputEventMouseMotion:

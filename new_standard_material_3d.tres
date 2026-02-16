@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blqs1h2ar5ehb"]
+
+[ext_resource type="Texture2D" uid="uid://biqxfsfk8f6ns" path="res://assets/m4_mesh_1024 palette.png" id="1_lquvc"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_lquvc")
+texture_filter = 2
+texture_repeat = false

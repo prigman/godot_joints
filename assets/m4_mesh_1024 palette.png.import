@@ -2,28 +2,31 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dusg3klnbhg4v"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://biqxfsfk8f6ns"
+path="res://.godot/imported/m4_mesh_1024 palette.png-5a9d1fe797df8c80bf79a76b805c4f9f.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "35110d13af6c26148b88669ff6f667be"
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/m4_mesh_1024 palette.png"
+dest_files=["res://.godot/imported/m4_mesh_1024 palette.png-5a9d1fe797df8c80bf79a76b805c4f9f.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
-compress/uastc_level=0
+compress/mode=4
+compress/high_quality=true
+compress/lossy_quality=1.0
+compress/uastc_level=4
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,7 +40,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
+detect_3d/compress_to=0
